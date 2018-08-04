@@ -37,14 +37,11 @@ const {
 	height
 } = Dimensions.get('window');
 export default class SportPage extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {}
-	}
 
 	// 点击搜索 -- 去往搜索页
 	_pressToSearchPage() {
-		this.props.navigation.navigate('SearchPage')
+		console.log('点击了搜索');
+		// this.props.navigation.navigate('SearchPage')
 	}
 
 	render() {
@@ -70,7 +67,12 @@ export default class SportPage extends Component {
 						initialPage={0}
 						swipeable={true}
 					>
-						<Text onPress={()=>this.props.navigation.navigate('Home').bind(this)}>where</Text>
+						<Text onPress={()=>this.props.navigation.navigate('Home').bind(this)}>训练</Text>
+						<Text onPress={()=>this.props.navigation.navigate('Home').bind(this)}>跑步</Text>
+						<Text onPress={()=>this.props.navigation.navigate('Home').bind(this)}>瑜伽</Text>
+						<Text onPress={()=>this.props.navigation.navigate('Home').bind(this)}>行走</Text>
+						<Text onPress={()=>this.props.navigation.navigate('Home').bind(this)}>骑行</Text>
+						<Text onPress={()=>this.props.navigation.navigate('Home').bind(this)}>kit</Text>
 					</Tabs>
 				</View>
 				<View style={{width: 60,height: 43,borderColor: '#ddd',borderBottomWidth: 1,alignItems: 'center',justifyContent: 'center'}}>
