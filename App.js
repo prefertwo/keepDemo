@@ -6,44 +6,54 @@
  * @flow
  */
 
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import React, {
+	Component
+} from 'react';
+import {
+	Text,
+	View
+} from 'react-native';
+import {
+	createStackNavigator
+} from 'react-navigation';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+import LoginPage from './pages/LoginPage.js' // 登录页
+import HomePage from './pages/HomePage.js' // 首页
+import SearchPage from './pages/secondLevelPages/SearchPage.js' // 搜索页 -- 二级
 
-type Props = {};
-export default class App extends Component<Props> {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-      </View>
-    );
-  }
+import SportPage from './pages/SportPage.js'
+import MinePage from './pages/MinePage.js'
+
+import Test from './pages/Test.js' // 测试页面
+
+const RouteStack = createStackNavigator({
+	// Home: {
+	// 	screen: HomePage
+	// },
+	Home: {
+		screen: HomePage
+	},
+	HomePage: {
+		screen: HomePage
+	},
+	SportPage: {
+		screen: SportPage
+	},
+	MinePage: {
+		screen: MinePage
+	},
+	SearchPage: {
+		screen: SearchPage
+	},
+}, {
+	initialRouteName: 'Home',
+	headerMode: 'none'
+})
+
+export default class App extends Component {
+	render() {
+		return (
+			<RouteStack/>
+		)
+	}
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
