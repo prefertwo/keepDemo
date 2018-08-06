@@ -9,6 +9,10 @@ import {
 	TouchableOpacity,
 	Dimensions
 } from 'react-native'
+import {
+	withNavigation
+} from 'react-navigation'
+
 import Tabs from 'antd-mobile-rn/lib/tabs'
 
 
@@ -36,12 +40,12 @@ const {
 	width,
 	height
 } = Dimensions.get('window');
-export default class SportPage extends Component {
+class SportPage extends Component {
 
 	// 点击搜索 -- 去往搜索页
 	_pressToSearchPage() {
 		console.log('点击了搜索');
-		// this.props.navigation.navigate('SearchPage')
+		this.props.navigation.navigate('SearchPage')
 	}
 
 	render() {
@@ -67,12 +71,17 @@ export default class SportPage extends Component {
 						initialPage={0}
 						swipeable={true}
 					>
-						<Text onPress={()=>this.props.navigation.navigate('Home').bind(this)}>训练</Text>
+
+						<Text>瑜伽</Text>
+
+
+
+						{/*<Text onPress={()=>this.props.navigation.navigate('Home').bind(this)}>训练</Text>
 						<Text onPress={()=>this.props.navigation.navigate('Home').bind(this)}>跑步</Text>
 						<Text onPress={()=>this.props.navigation.navigate('Home').bind(this)}>瑜伽</Text>
 						<Text onPress={()=>this.props.navigation.navigate('Home').bind(this)}>行走</Text>
 						<Text onPress={()=>this.props.navigation.navigate('Home').bind(this)}>骑行</Text>
-						<Text onPress={()=>this.props.navigation.navigate('Home').bind(this)}>kit</Text>
+						<Text onPress={()=>this.props.navigation.navigate('Home').bind(this)}>kit</Text>*/}
 					</Tabs>
 				</View>
 				<View style={{width: 60,height: 43,borderColor: '#ddd',borderBottomWidth: 1,alignItems: 'center',justifyContent: 'center'}}>
@@ -84,3 +93,5 @@ export default class SportPage extends Component {
 		)
 	}
 }
+
+export default withNavigation(SportPage);

@@ -10,6 +10,9 @@ import {
 	ScrollView,
 	TouchableOpacity
 } from 'react-native'
+import {
+	withNavigation
+} from 'react-navigation'
 import Tabs from 'antd-mobile-rn/lib/tabs'
 
 import FindChoice from './secondLevelPages/FindChoice.js'
@@ -31,14 +34,21 @@ const tabs = [{
 }, {
 	title: '商城'
 }];
-export default class FindPage extends Component {
+class FindPage extends Component {
+
+	_pressToSearch() {
+		this.props.navigation.navigate('SearchPage');
+		// console.log(1234);
+	}
 
 	render() {
 		return (
 			<View style={{flex: 1}}>
 				<View style={{flexDirection: 'row',height: 40,alignItems: 'center',justifyContent: 'space-between',paddingLeft: 20,paddingRight: 20}}>
 					<Text>发现</Text>
-					<Image style={{tintColor: '#000'}} source={require('../resource/icons/search.png')}/>
+					<TouchableOpacity onPress={this._pressToSearch.bind(this)} >
+						<Image style={{tintColor: '#000'}} source={require('../resource/icons/search.png')}/>
+					</TouchableOpacity>
 				</View>
 				<View style={{flex: 1}}>
 					<Tabs tabs={tabs} initialPage={4} swipeable={false}>
@@ -59,3 +69,5 @@ export default class FindPage extends Component {
 		)
 	}
 }
+
+export default withNavigation(FindPage);

@@ -23,12 +23,11 @@ export default class FindChoice extends Component {
 				<View>
 					<Carousel
 						selectedIndex={1}
-						dots={true}
+						dots={false}
 						vertical={false}
 						autoplay={true}
 						autoplayInterval={2000}
 						infinite={true}
-						afterChange={(value)=>console.log(value)}
 					>
 						<Image style={{width: width,height: 200}} source={require('../../resource/imgs/10001.jpg')}/>
 						<Image style={{width: width,height: 200}} source={require('../../resource/imgs/10003.jpg')}/>

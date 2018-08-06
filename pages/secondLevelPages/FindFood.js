@@ -22,7 +22,9 @@ export default class FindFood extends Component {
 			<View>
 				<ScrollView>
 					<View>
-						<Carousel>
+						<Carousel
+							dots={false}
+						>
 							<Image style={{width: width,height: 200}} source={require('../../resource/imgs/40001.jpg')}/>
 							<Image style={{width: width,height: 200}} source={require('../../resource/imgs/40002.jpg')}/>
 							<Image style={{width: width,height: 200}} source={require('../../resource/imgs/40003.jpg')}/>
